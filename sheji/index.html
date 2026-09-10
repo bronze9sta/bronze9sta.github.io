@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>射击 游戏-热门射击游戏推荐与玩法指南</title>
+    <meta name="description" content="射击 游戏大全，提供最新射击游戏推荐、经典FPS/TPS游戏评测、新手入门技巧、武器解析与配置要求，助你快速找到适合的射击游戏。">
+    <meta name="keywords" content="射击 游戏,射击游戏推荐,FPS游戏,TPS游戏,枪战游戏,射击游戏排行榜,射击游戏下载">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #0f1115;
+            color: #e0e4ec;
+            line-height: 1.6;
+        }
+        a {
+            color: #c0d4ff;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #ffb84d;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .site-header {
+            background: linear-gradient(135deg, #1a1e28 0%, #2a2f3e 100%);
+            border-bottom: 1px solid #3a4050;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            flex-wrap: wrap;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle at 35% 30%, #ff8a50, #e03131);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 900;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(224, 49, 49, 0.3);
+        }
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        .logo-text span {
+            color: #ff8a50;
+        }
+        .header-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+        .header-nav a {
+            font-weight: 500;
+            color: #b8c0d0;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .header-nav a:hover {
+            color: #fff;
+            border-bottom-color: #ff8a50;
+        }
+        .header-search {
+            display: flex;
+            align-items: center;
+            background: #232833;
+            border-radius: 30px;
+            padding: 4px 4px 4px 16px;
+            border: 1px solid #3a4050;
+        }
+        .header-search input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            width: 160px;
+            font-size: 0.9rem;
+        }
+        .header-search button {
+            background: #ff6b35;
+            border: none;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .header-search button:hover {
+            background: #ff8a50;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(160deg, #0b0e14 0%, #1b2330 60%, #2c1b1b 100%);
+            padding: 70px 0 60px;
+            border-bottom: 1px solid #2e3542;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 138, 80, 0.2);
+            border: 1px solid rgba(255, 138, 80, 0.4);
+            color: #ffb38a;
+            font-size: 0.8rem;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(120deg, #ff6b35, #ffb84d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: #aab3c5;
+            max-width: 600px;
+            margin-bottom: 28px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .stat-item {
+            text-align: left;
+        }
+        .stat-num {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ffb84d;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            color: #8a93a6;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #ff6b35;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+        }
+        .btn-primary:hover {
+            background: #ff8a50;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #c0d4ff;
+            border: 1px solid #4a5a70;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            border-color: #ffb84d;
+            color: #ffb84d;
+        }
+        .hero-panel {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(8px);
+        }
+        .panel-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffb84d;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hot-list {
+            list-style: none;
+        }
+        .hot-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #2e3542;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .hot-list li:last-child {
+            border-bottom: none;
+        }
+        .hot-rank {
+            width: 28px;
+            height: 28px;
+            background: #2a3040;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #ffb84d;
+            flex-shrink: 0;
+        }
+        .hot-name {
+            font-weight: 600;
+            color: #e0e4ec;
+            flex: 1;
+        }
+        .hot-tag {
+            background: #1f2530;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: #8a93a6;
+        }
+
+        /* Section Common */
+        .section {
+            padding: 60px 0;
+        }
+        .section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .section-head h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            position: relative;
+            padding-left: 18px;
+        }
+        .section-head h2::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 6px;
+            height: 26px;
+            background: #ff6b35;
+            border-radius: 4px;
+        }
+        .section-more {
+            font-size: 0.9rem;
+            color: #8a93a6;
+            transition: 0.2s;
+        }
+        .section-more:hover {
+            color: #ffb84d;
+        }
+
+        /* Game Cards Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+        .game-card {
+            background: #171b24;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #232a36;
+            transition: 0.3s;
+        }
+        .game-card:hover {
+            transform: translateY(-6px);
+            border-color: #ff8a50;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+        }
+        .card-thumb {
+            height: 140px;
+            background: linear-gradient(135deg, #1f2a3a 0%, #2a3a4a 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-thumb .emoji {
+            font-size: 3rem;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+        }
+        .card-type {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: #ffb84d;
+            font-weight: 600;
+        }
+        .card-score {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 107, 53, 0.9);
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+        .card-body {
+            padding: 16px;
+        }
+        .card-body h3 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+        .card-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+        .card-tags span {
+            background: #232a36;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: #8a93a6;
+        }
+        .card-desc {
+            font-size: 0.85rem;
+            color: #8a93a6;
+            line-height: 1.5;
+        }
+
+        /* Feature Split */
+        .split-section {
+            background: #12161f;
+            border-top: 1px solid #232a36;
+            border-bottom: 1px solid #232a36;
+        }
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .split-visual {
+            background: linear-gradient(145deg, #1e2a38, #2a3a4a);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #33404f;
+        }
+        .split-visual .big-emoji {
+            font-size: 6rem;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+        }
+        .split-content h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        .split-content p {
+            color: #aab3c5;
+            margin-bottom: 20px;
+        }
+        .feature-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            color: #c0c8d4;
+        }
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ff8a50;
+            font-weight: 800;
+        }
+
+        /* Tips / Info cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+        .info-card {
+            background: #171b24;
+            border: 1px solid #232a36;
+            border-radius: 14px;
+            padding: 24px;
+            transition: 0.2s;
+        }
+        .info-card:hover {
+            border-color: #4a5a70;
+        }
+        .info-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        .info-card h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .info-card p {
+            color: #8a93a6;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: #12161f;
+            border-top: 1px solid #232a36;
+        }
+        .faq-list {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #171b24;
+            border: 1px solid #232a36;
+            border-radius: 12px;
+            margin-bottom: 14px;
+            padding: 20px 24px;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #fff;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+        .faq-question::before {
+            content: "Q";
+            background: #ff6b35;
+            color: #fff;
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .faq-answer {
+            color: #aab3c5;
+            padding-left: 36px;
+            font-size: 0.95rem;
+        }
+        .faq-answer strong {
+            color: #c0d4ff;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: #0b0e14;
+            border-top: 1px solid #232a36;
+            padding: 40px 0 30px;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #8a93a6;
+            font-size: 0.9rem;
+        }
+        .footer-links a:hover {
+            color: #ffb84d;
+        }
+        .copyright {
+            color: #5a6272;
+            font-size: 0.8rem;
+            margin-top: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .game-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .split-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-nav {
+                order: 3;
+                width: 100%;
+                margin-top: 10px;
+                overflow-x: auto;
+            }
+            .header-nav ul {
+                gap: 20px;
+                justify-content: center;
+            }
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 16px;
+            }
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .header-inner {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+            .header-search {
+                width: 100%;
+            }
+            .header-search input {
+                flex: 1;
+            }
+            .hero-stats {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            .section-head h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo-area">
+                <div class="logo-icon">靶</div>
+                <div class="logo-text">射击<span>营地</span></div>
+            </div>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">热门游戏</a></li>
+                    <li><a href="#">新手入门</a></li>
+                    <li><a href="#">武器图鉴</a></li>
+                    <li><a href="#">赛事中心</a></li>
+                </ul>
+            </nav>
+            <div class="header-search">
+                <input type="text" placeholder="搜索射击游戏...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div>
+                        <span class="hero-badge">🎯 专业射击游戏门户</span>
+                        <h1>发现你的下一款<span class="highlight">射击 游戏</span> 热爱之作</h1>
+                        <p class="hero-desc">
+                            从硬核军事模拟到快节奏竞技枪战，我们精选各平台值得投入时间的射击游戏。无论你是刚接触 FPS 的新手，还是追求高段位的老玩家，这里都有适合你的选择与实用攻略。
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-num">500+</div>
+                                <div class="stat-label">收录游戏</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-num">30+</div>
+                                <div class="stat-label">热门推荐</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-num">24h</div>
+                                <div class="stat-label">资讯更新</div>
+                            </div>
+                        </div>
+                        <div class="hero-cta">
+                            <button class="btn-primary">浏览游戏库</button>
+                            <button class="btn-outline">查看新手攻略</button>
+                        </div>
+                    </div>
+                    <div class="hero-panel">
+                        <div class="panel-title">🔥 本周热门射击 游戏</div>
+                        <ul class="hot-list">
+                            <li>
+                                <span class="hot-rank">1</span>
+                                <span class="hot-name">战术小队 · 硬核攻防</span>
+                                <span class="hot-tag">FPS</span>
+                            </li>
+                            <li>
+                                <span class="hot-rank">2</span>
+                                <span class="hot-name">星域突击 · 科幻战场</span>
+                                <span class="hot-tag">TPS</span>
+                            </li>
+                            <li>
+                                <span class="hot-rank">3</span>
+                                <span class="hot-name">枪火重生 · Roguelite</span>
+                                <span class="hot-tag">Roguelite</span>
+                            </li>
+                            <li>
+                                <span class="hot-rank">4</span>
+                                <span class="hot-name">狙击精英 · 潜行射击</span>
+                                <span class="hot-tag">潜行</span>
+                            </li>
+                            <li>
+                                <span class="hot-rank">5</span>
+                                <span class="hot-name">边境巡逻 · 开放世界</span>
+                                <span class="hot-tag">开放世界</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 热门射击游戏推荐 -->
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>热门射击 游戏推荐</h2>
+                    <a href="#" class="section-more">查看全部 →</a>
+                </div>
+                <div class="game-grid">
+                    <div class="game-card">
+                        <div class="card-thumb">
+                            <span class="emoji">🔫</span>
+                            <span class="card-type">FPS</span>
+                            <span class="card-score">9.2</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>战术突击</h3>
+                            <div class="card-tags"><span>团队竞技</span><span>硬核</span><span>PC</span></div>
+                            <p class="card-desc">强调配合与战术的现代战争射击，真实弹道与地图设计深受核心玩家喜爱。</p>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="card-thumb">
+                            <span class="emoji">🚀</span>
+                            <span class="card-type">TPS</span>
+                            <span class="card-score">8.8</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>星域前线</h3>
+                            <div class="card-tags"><span>科幻</span><span>PVE</span><span>多人</span></div>
+                            <p class="card-desc">在广阔外星战场对抗机械军团，丰富的职业系统和爽快的射击手感。</p>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="card-thumb">
+                            <span class="emoji">🎯</span>
+                            <span class="card-type">竞技</span>
+                            <span class="card-score">9.0</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>爆头时刻</h3>
+                            <div class="card-tags"><span>快节奏</span><span>排位赛</span><span>主机</span></div>
+                            <p class="card-desc">一局三分钟的爽快对战，依靠精准枪法和快速反应赢得胜利。</p>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="card-thumb">
+                            <span class="emoji">🌲</span>
+                            <span class="card-type">战术生存</span>
+                            <span class="card-score">8.5</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>荒野猎手</h3>
+                            <div class="card-tags"><span>大逃杀</span><span>生存</span><span>跨平台</span></div>
+                            <p class="card-desc">百人同图竞技，搜集装备并存活到最后，紧张感十足。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 射击游戏类型介绍 分栏 -->
+        <section class="section split-section">
+            <div class="container">
+                <div class="split-grid">
+                    <div class="split-visual">
+                        <div class="big-emoji">🕹️</div>
+                        <h3 style="color:#fff; font-size:1.6rem; margin-top:20px;">FPS vs TPS</h3>
+                        <p style="color:#aab3c5; margin-top:10px;">第一人称与第三人称射击的体验差异</p>
+                    </div>
+                    <div class="split-content">
+                        <h2>了解射击 游戏的核心分类</h2>
+                        <p>射击游戏经过数十年发展，已经形成多个特征鲜明的子类型。理解这些差异能帮你更快找到适合自己的作品。</p>
+                        <ul class="feature-list">
+                            <li><strong>FPS（第一人称射击）</strong>：沉浸感最强，视野完全代入角色，适合追求竞技与反应速度的玩家。</li>
+                            <li><strong>TPS（第三人称射击）</strong>：能看到角色全身，方便观察周围环境，部分游戏还包含掩体系统。</li>
+                            <li><strong>战术射击</strong>：强调小队配合、经济管理与信息收集，节奏更慢但策略深度极高。</li>
+                            <li><strong>射击Roguelite</strong>：每次游玩随机生成关卡，死亡后永久强化，重复可玩性强。</li>
+                        </ul>
+                        <button class="btn-primary" style="background:#2a3040; box-shadow:none;">了解更多类型</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 新手入门指南 -->
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>射击 游戏新手入门指南</h2>
+                    <a href="#" class="section-more">更多技巧 →</a>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">🖱️</div>
+                        <h3>基础操作设置</h3>
+                        <p>灵敏度、键位绑定与准星颜色调整是第一步。建议在训练场测试适合自己的DPI与游戏内灵敏度，保持肌肉记忆。</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🎯</div>
+                        <h3>瞄准与跟枪</h3>
+                        <p>练习预瞄、压枪与跟枪是提升枪法的关键。可从靶场练习开始，再逐步进入死斗模式实战巩固。</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🗺️</div>
+                        <h3>地图与意识</h3>
+                        <p>熟悉地图的进攻路线、卡点位置和声音提示，比盲目拼枪更有效。多观察小地图与队友报点。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 配置与硬件建议 -->
+        <section class="section" style="background:#12161f; border-top:1px solid #232a36; border-bottom:1px solid #232a36;">
+            <div class="container">
+                <div class="section-head">
+                    <h2>硬件与配置建议</h2>
+                </div>
+                <div class="game-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="game-card" style="background: #1a1f2a;">
+                        <div class="card-body">
+                            <h3>💻 入门配置</h3>
+                            <p class="card-desc">适合 1080P 中低画质流畅运行主流竞技射击游戏。<br>CPU：i5-10400F 级别<br>GPU：GTX 1650 级别<br>内存：16GB</p>
+                        </div>
+                    </div>
+                    <div class="game-card" style="background: #1a1f2a;">
+                        <div class="card-body">
+                            <h3>⚡ 推荐配置</h3>
+                            <p class="card-desc">满足高画质 144Hz 显示器需求。<br>CPU：i5-12400F 级别<br>GPU：RTX 3060 级别<br>内存：16GB 双通道</p>
+                        </div>
+                    </div>
+                    <div class="game-card" style="background: #1a1f2a;">
+                        <div class="card-body">
+                            <h3>🏆 电竞级配置</h3>
+                            <p class="card-desc">追求 240Hz 以上极致流畅体验。<br>CPU：i7-13700K 级别<br>GPU：RTX 4070 级别<br>内存：32GB 低延迟</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color:#8a93a6; margin-top:24px; font-size:0.9rem; text-align:center;">* 配置建议仅供参考，实际需求因游戏优化而异。高刷新率显示器对射击游戏体验提升明显。</p>
+            </div>
+        </section>
+
+        <!-- 武器与装备解析 -->
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>主流武器类型解析</h2>
+                    <a href="#" class="section-more">武器数据库 →</a>
+                </div>
+                <div class="info-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="info-card" style="text-align:center;">
+                        <div class="info-icon">🔫</div>
+                        <h3>突击步枪</h3>
+                        <p>最均衡的万金油选择，中距离表现优秀，适合大多数场景。</p>
+                    </div>
+                    <div class="info-card" style="text-align:center;">
+                        <div class="info-icon">🔭</div>
+                        <h3>狙击步枪</h3>
+                        <p>一击必杀的高风险高回报武器，需要精准预判与站位。</p>
+                    </div>
+                    <div class="info-card" style="text-align:center;">
+                        <div class="info-icon">💥</div>
+                        <h3>霰弹枪</h3>
+                        <p>近距离爆发极高，转角遭遇战中的绝对王者。</p>
+                    </div>
+                    <div class="info-card" style="text-align:center;">
+                        <div class="info-icon">⚡</div>
+                        <h3>冲锋枪</h3>
+                        <p>射速快、机动性强，适合游走与绕后打法。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section faq-section">
+            <div class="container">
+                <div class="section-head" style="justify-content:center;">
+                    <h2 style="padding-left:0;">射击 游戏常见问题</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">玩射击游戏晕 3D 怎么办？</div>
+                        <div class="faq-answer">可以尝试调低鼠标灵敏度、拉大视野范围（FOV），保证充足光线，并适当休息。部分游戏提供减少动态模糊选项，也能有效缓解眩晕。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">射击游戏选择 PC 还是主机？</div>
+                        <div class="faq-answer">竞技类射击游戏（如战术竞技、排位赛）通常 PC 端玩家更多且操作精度更高；主机版则胜在优化统一、外挂较少，且支持本地分屏。可根据你的社交圈和习惯选择。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">新手适合玩哪些射击 游戏？</div>
+                        <div class="faq-answer">建议从有 PVE 模式或新手训练营的游戏入手，比如支持合作模式的射击游戏，或娱乐模式占比高的作品。先熟悉基本操作，再逐步尝试竞技排位。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何有效提升枪法？</div>
+                        <div class="faq-answer">每天花 15-20 分钟在靶场练习固定目标与移动目标射击，重点练习压枪节奏。同时观看高水平玩家录像，学习他们的拉枪线与预瞄习惯。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">联系我们</a>
+                <a href="#">版权声明</a>
+                <a href="#">友情链接</a>
+                <a href="#">网站地图</a>
+            </div>
+            <p style="color:#5a6272;">热门标签：FPS游戏 · 战术射击 · 大逃杀 · 射击单机 · 射击网游</p>
+            <p class="copyright">© 2025 射击营地 ShooterCamp. 保留所有权利。本站内容仅供玩家参考与学习交流。</p>
+        </div>
+    </footer>
+
+</body>
+                  </html>
