@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防灾减灾宣传-全民应急避险科普指南与安全知识平台</title>
+    <meta name="description" content="防灾减灾宣传平台，提供地震、洪水、台风、火灾等自然灾害的应急避险知识，家庭应急准备指南，社区防灾演练方案，以及日常安全防范技能，助力提升全民防灾减灾意识和自救互救能力。">
+    <meta name="keywords" content="防灾减灾宣传,防灾减灾,应急避险,灾害预防,安全科普,家庭应急包,地震逃生,洪水自救,台风防范,火灾逃生">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+            background-color: #f4f8f7;
+            color: #2d3a3a;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 页眉 */
+        .site-header {
+            background: linear-gradient(135deg, #0b3d2e 0%, #1b5e46 100%);
+            color: #fff;
+            padding: 18px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            background: #ffb703;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #0b3d2e;
+            font-weight: bold;
+        }
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .site-title span {
+            font-weight: 300;
+            font-size: 0.9rem;
+            display: block;
+            opacity: 0.9;
+        }
+        .header-contact {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-align: right;
+        }
+        /* 导航 */
+        .main-nav {
+            background-color: #0d4a37;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .main-nav ul li {
+            margin: 0;
+        }
+        .main-nav ul li a {
+            display: block;
+            color: #e9f5f0;
+            text-decoration: none;
+            padding: 14px 22px;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+            border-right: 1px solid rgba(255,255,255,0.06);
+        }
+        .main-nav ul li a:hover, .main-nav ul li a.active {
+            background-color: #ffb703;
+            color: #0b3d2e;
+        }
+        /* 首屏横幅 */
+        .hero {
+            background: linear-gradient(180deg, #e6f2ed 0%, #d3e8df 100%);
+            padding: 50px 0 60px;
+            border-bottom: 4px solid #ffb703;
+        }
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-size: 2.4rem;
+            color: #0b3d2e;
+            line-height: 1.3;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+        .hero-text h1 em {
+            font-style: normal;
+            color: #c47f00;
+            border-bottom: 4px solid #ffb703;
+            padding-bottom: 2px;
+        }
+        .hero-text p {
+            font-size: 1.15rem;
+            color: #2d4a3e;
+            margin-bottom: 24px;
+            max-width: 600px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background-color: #1b5e46;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #0b3d2e;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+        .btn-outline {
+            background: transparent;
+            border-color: #0b3d2e;
+            color: #0b3d2e;
+        }
+        .btn:hover {
+            background-color: #ffb703;
+            border-color: #ffb703;
+            color: #0b3d2e;
+            transform: translateY(-2px);
+        }
+        .btn-outline:hover {
+            background-color: #0b3d2e;
+            color: #fff;
+        }
+        .hero-visual {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0,40,20,0.12);
+            text-align: center;
+            border: 1px solid rgba(11,61,46,0.1);
+        }
+        .hero-visual .shield-icon {
+            font-size: 5rem;
+            margin-bottom: 10px;
+        }
+        .hero-visual h3 {
+            color: #0b3d2e;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        .hero-visual p {
+            color: #3e5a4e;
+            font-size: 1rem;
+        }
+        .stat-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 24px;
+            border-top: 1px solid #e0e8e4;
+            padding-top: 18px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1b5e46;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: #6b7f75;
+        }
+        /* 栏目通用 */
+        .section {
+            padding: 60px 0;
+        }
+        .section-head {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-head h2 {
+            font-size: 2rem;
+            color: #0b3d2e;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        .section-head p {
+            color: #5a6e64;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .section-head h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #ffb703;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+        /* 灾害分类卡片 */
+        .disaster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+        .disaster-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 5px solid #ffb703;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .disaster-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+        }
+        .disaster-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+        .disaster-card h3 {
+            color: #0b3d2e;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        .disaster-card p {
+            color: #5f7268;
+            font-size: 0.95rem;
+        }
+        .disaster-card .tag {
+            background: #eef6f2;
+            color: #1b5e46;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+        /* 双栏内容区 */
+        .two-col {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        .content-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+            margin-bottom: 30px;
+        }
+        .content-card h3 {
+            color: #0b3d2e;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .content-card h3 .icon {
+            font-size: 1.6rem;
+        }
+        .content-card p {
+            color: #3f554a;
+            margin-bottom: 14px;
+        }
+        .content-card ul {
+            padding-left: 20px;
+            margin-bottom: 14px;
+        }
+        .content-card li {
+            margin-bottom: 8px;
+        }
+        .emergency-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .emergency-list li {
+            background: #f8fbf9;
+            border-left: 4px solid #ffb703;
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        /* 侧边栏 */
+        .sidebar-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+        }
+        .sidebar-card h3 {
+            color: #0b3d2e;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #eef2ef;
+            padding-bottom: 10px;
+        }
+        .quick-links a {
+            display: block;
+            padding: 10px 0;
+            color: #1b5e46;
+            text-decoration: none;
+            border-bottom: 1px dashed #d9e2dd;
+            font-weight: 500;
+            transition: padding-left 0.2s;
+        }
+        .quick-links a:hover {
+            padding-left: 8px;
+            color: #c47f00;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f3f1;
+        }
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        .checkmark {
+            color: #1b5e46;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        /* 应急准备指南 */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .guide-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+            border-bottom: 4px solid #0b3d2e;
+        }
+        .guide-item h4 {
+            color: #0b3d2e;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .guide-item p {
+            color: #4a5f55;
+            font-size: 0.95rem;
+        }
+        .guide-item .step {
+            background: #ffb703;
+            color: #0b3d2e;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+        /* 预警信号表 */
+        .signal-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+        }
+        .signal-table th {
+            background: #0b3d2e;
+            color: #fff;
+            padding: 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .signal-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #e8efec;
+            color: #3d5248;
+        }
+        .signal-table tr:last-child td {
+            border-bottom: none;
+        }
+        .signal-table tr:hover td {
+            background-color: #f5faf7;
+        }
+        .signal-color {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        /* FAQ */
+        .faq-item {
+            background: #fff;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            padding: 20px 24px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #0b3d2e;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .faq-question .q-mark {
+            background: #ffb703;
+            color: #0b3d2e;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .faq-answer {
+            color: #4a5f55;
+            padding-left: 36px;
+        }
+        /* 演练与社区 */
+        .drill-banner {
+            background: linear-gradient(120deg, #0b3d2e, #1b5e46);
+            border-radius: 20px;
+            padding: 40px;
+            color: #fff;
+            margin: 40px 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        .drill-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+        .drill-banner p {
+            opacity: 0.95;
+            margin-bottom: 16px;
+        }
+        .drill-banner .btn {
+            background: #ffb703;
+            color: #0b3d2e;
+            border: none;
+        }
+        /* 页脚 */
+        .site-footer {
+            background: #0b3d2e;
+            color: #cfe0d8;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-col h4 {
+            color: #ffb703;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+        .footer-col a {
+            display: block;
+            color: #cfe0d8;
+            text-decoration: none;
+            padding: 4px 0;
+            font-size: 0.9rem;
+        }
+        .footer-col a:hover {
+            color: #ffb703;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        /* 响应式 */
+        @media (max-width: 992px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            .drill-banner {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+        }
+        @media (max-width: 768px) {
+            .main-nav ul {
+                flex-direction: column;
+            }
+            .main-nav ul li a {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+                padding: 12px 20px;
+            }
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            .site-header .header-inner {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .header-contact {
+                text-align: center;
+            }
+            .section {
+                padding: 40px 0;
+            }
+            .section-head h2 {
+                font-size: 1.6rem;
+            }
+            .disaster-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            .content-card {
+                padding: 20px;
+            }
+            .btn-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .btn {
+                text-align: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 0 14px;
+            }
+            .stat-number {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+    <!-- 页眉 -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo-area">
+                <div class="logo-icon">盾</div>
+                <div class="site-title">防灾减灾宣传
+                    <span>全民安全 · 应急避险科普平台</span>
+                </div>
+            </div>
+            <div class="header-contact">
+                <div>☎ 应急电话：119 / 110 / 120</div>
+                <div style="font-size:0.8rem; margin-top:4px;">全国防灾减灾日：5月12日</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 导航 -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#disaster">灾害科普</a></li>
+                <li><a href="#guide">应急准备</a></li>
+                <li><a href="#signal">预警信号</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a href="#drill">演练活动</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 首屏 Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <span class="hero-badge">🌍 减轻灾害风险 · 守护美好家园</span>
+                <h1>科学防灾减灾，<em>守护生命安全</em></h1>
+                <p>掌握正确的防灾减灾知识与应急避险技能，是保护自己和家人最有效的方式。本平台致力于提供权威、实用的灾害预防科普和应急指南，帮助每一位公民提升风险防范意识。</p>
+                <div class="btn-group">
+                    <a href="#guide" class="btn">家庭应急准备</a>
+                    <a href="#disaster" class="btn btn-outline">了解灾害类型</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="shield-icon">🛡️</div>
+                <h3>防灾减灾 · 人人有责</h3>
+                <p>每一次学习，都是对生命的负责</p>
+                <div class="stat-row">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">常见灾害科普</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">应急避险技能</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label">安全提醒更新</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 灾害分类区 -->
+    <section class="section" id="disaster">
+        <div class="container">
+            <div class="section-head">
+                <h2>了解身边的主要灾害类型</h2>
+                <p>不同灾害有着截然不同的应对方式，提前了解、科学应对，关键时刻能救命。</p>
+            </div>
+            <div class="disaster-grid">
+                <a href="#" class="disaster-card">
+                    <div class="disaster-icon">🌊</div>
+                    <h3>洪水灾害</h3>
+                    <p>暴雨、洪涝的预警识别与快速撤离要点</p>
+                    <span class="tag">避险指南</span>
+                </a>
+                <a href="#" class="disaster-card">
+                    <div class="disaster-icon">🌀</div>
+                    <h3>台风风暴</h3>
+                    <p>台风来临前后的居家防护与安全准备</p>
+                    <span class="tag">防范措施</span>
+                </a>
+                <a href="#" class="disaster-card">
+                    <div class="disaster-icon">🏔️</div>
+                    <h3>地震灾害</h3>
+                    <p>震时就近避险、震后有序疏散的原则</p>
+                    <span class="tag">应急避险</span>
+                </a>
+                <a href="#" class="disaster-card">
+                    <div class="disaster-icon">🔥</div>
+                    <h3>火灾事故</h3>
+                    <p>家庭火灾隐患排查与火场逃生自救方法</p>
+                    <span class="tag">安全防火</span>
+                </a>
+                <a href="#" class="disaster-card">
+                    <div class="disaster-icon">⛈️</div>
+                    <h3>雷电天气</h3>
+                    <p>户外防雷击、室内电器安全保护常识</p>
+                    <span class="tag">防护知识</span>
+                </a>
+                <a href="#" class="disaster-card">
+                    <div class="disaster-icon">🏜️</div>
+                    <h3>干旱高温</h3>
+                    <p>极端高温应对、节约用水与防火警示</p>
+                    <span class="tag">生活提示</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容区 -->
+    <section class="section" style="padding-top:0;">
+        <div class="container">
+            <div class="two-col">
+                <div class="left-col">
+                    <!-- 内容卡片：应急响应流程 -->
+                    <div class="content-card">
+                        <h3><span class="icon">🚨</span>灾害应急响应流程</h3>
+                        <p>面对突发灾害，保持冷静并按照正确的流程行动至关重要。无论何种灾害，以下通用响应步骤能帮助您快速进入安全状态：</p>
+                        <ul class="emergency-list">
+                            <li>🛑 立即获取权威灾情信息，听从当地应急部门指挥</li>
+                            <li>🏃 根据灾害类型选择正确的避险方式，迅速撤离危险区域</li>
+                            <li>📞 如遇险情，拨打紧急电话并报告准确位置与受伤情况</li>
+                            <li>⛑️ 在保证自身安全的前提下，帮助身边老幼病残人员</li>
+                            <li>🏠 灾后切勿擅自返回，警惕次生灾害，配合救援安排</li>
+                        </ul>
+                    </div>
+                    <!-- 内容卡片：家庭隐患排查 -->
+                    <div class="content-card">
+                        <h3><span class="icon">🏠</span>家庭安全隐患排查清单</h3>
+                        <p>定期检查家中安全隐患，能显著降低灾害风险。以下是最基础也最重要的排查项目：</p>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 24px;">
+                            <p>✅ 烟雾报警器是否正常工作</p>
+                            <p>✅ 燃气软管是否老化漏气</p>
+                            <p>✅ 电器线路是否过载破损</p>
+                            <p>✅ 阳台是否堆放易燃杂物</p>
+                            <p>✅ 窗户是否变形难以开启</p>
+                            <p>✅ 应急手电是否电量充足</p>
+                            <p>✅ 灭火器是否在有效期内</p>
+                            <p>✅ 疏散通道是否畅通无阻</p>
+                        </div>
+                    </div>
+                    <!-- 内容卡片：应急准备指南 -->
+                    <div class="content-card" id="guide">
+                        <h3><span class="icon">🎒</span>家庭应急包准备指南</h3>
+                        <p>一个配置完善的家庭应急包，是应对突发灾害的重要保障。建议每半年检查更新一次，确保物品可用。</p>
+                        <div class="guide-grid">
+                            <div class="guide-item">
+                                <div class="step">1</div>
+                                <h4>饮用水与食品</h4>
+                                <p>按每人每天3升水、备足3天量；准备压缩饼干、罐头等高热量耐存食品。</p>
+                            </div>
+                            <div class="guide-item">
+                                <div class="step">2</div>
+                                <h4>照明与通讯</h4>
+                                <p>手摇充电手电筒、备用电池、哨子、充电宝、备用充电线。</p>
+                            </div>
+                            <div class="guide-item">
+                                <div class="step">3</div>
+                                <h4>医疗与卫生</h4>
+                                <p>急救包、常用药品、消毒湿巾、口罩、一次性手套、个人卫生用品。</p>
+                            </div>
+                            <div class="guide-item">
+                                <div class="step">4</div>
+                                <h4>重要证件与工具</h4>
+                                <p>身份证复印件、少量现金、多功能刀具、绳索、保温毯、雨衣。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 侧边栏 -->
+                <aside class="right-col">
+                    <div class="sidebar-card">
+                        <h3>📌 紧急避险速查</h3>
+                        <div class="quick-links">
+                            <a href="#">→ 地震时在室内怎么办？</a>
+                            <a href="#">→ 洪水围困时如何求救？</a>
+                            <a href="#">→ 台风天窗户如何加固？</a>
+                            <a href="#">→ 火灾高层如何逃生？</a>
+                            <a href="#">→ 山体滑坡前兆有哪些？</a>
+                            <a href="#">→ 雷雨天户外避雷禁忌</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-card">
+                        <h3>🧾 社区防灾准备核查</h3>
+                        <div class="checklist-item">
+                            <span class="checkmark">✓</span>
+                            <span>了解社区应急避难场所位置</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkmark">✓</span>
+                            <span>熟悉楼栋疏散通道与出口</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkmark">✓</span>
+                            <span>参与社区组织的防灾演练</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkmark">✓</span>
+                            <span>关注社区灾害预警发布渠道</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span class="checkmark">✓</span>
+                            <span>了解邻里互助联系机制</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-card">
+                        <h3>📢 近期宣传动态</h3>
+                        <div style="font-size:0.9rem; color:#3f554a;">
+                            <p style="margin-bottom:8px;"><strong>• 全国防灾减灾日</strong> 每年5月12日，各地开展形式多样的防灾减灾宣传教育活动。</p>
+                            <p style="margin-bottom:8px;"><strong>• 国际减灾日</strong> 每年10月13日，聚焦全球灾害风险减轻意识。</p>
+                            <p><strong>• 世界气象日</strong> 每年3月23日，关注气象灾害预警与防范。</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- 预警信号表 -->
+    <section class="section" style="background:#eef4f1;" id="signal">
+        <div class="container">
+            <div class="section-head">
+                <h2>读懂气象灾害预警信号</h2>
+                <p>我国气象预警信号一般为四级，用蓝色、黄色、橙色、红色表示，红色为最高级别。</p>
+            </div>
+            <div style="overflow-x:auto;">
+                <table class="signal-table">
+                    <thead>
+                        <tr>
+                            <th>预警等级</th>
+                            <th>颜色标识</th>
+                            <th>台风</th>
+                            <th>暴雨</th>
+                            <th>高温</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ⅳ级（一般）</td>
+                            <td><span class="signal-color" style="background:#3b82f6;"></span>蓝色</td>
+                            <td>24小时内可能受热带气旋影响</td>
+                            <td>12小时内降雨量将达50毫米以上</td>
+                            <td>连续三天最高气温将达35℃</td>
+                        </tr>
+                        <tr>
+                            <td>Ⅲ级（较重）</td>
+                            <td><span class="signal-color" style="background:#eab308;"></span>黄色</td>
+                            <td>24小时内可能受强热带风暴影响</td>
+                            <td>6小时内降雨量将达50毫米以上</td>
+                            <td>24小时内最高气温将升至37℃</td>
+                        </tr>
+                        <tr>
+                            <td>Ⅱ级（严重）</td>
+                            <td><span class="signal-color" style="background:#f97316;"></span>橙色</td>
+                            <td>12小时内可能受强热带风暴或台风影响</td>
+                            <td>3小时内降雨量将达50毫米以上</td>
+                            <td>24小时内最高气温将升至40℃</td>
+                        </tr>
+                        <tr>
+                            <td>Ⅰ级（特别严重）</td>
+                            <td><span class="signal-color" style="background:#ef4444;"></span>红色</td>
+                            <td>6小时内可能受台风影响，风力达12级以上</td>
+                            <td>3小时内降雨量将达100毫米以上</td>
+                            <td>24小时内最高气温将升至40℃以上</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 演练与社区 -->
+    <section class="section" id="drill">
+        <div class="container">
+            <div class="drill-banner">
+                <div>
+                    <h3>参加应急演练，提升实战能力</h3>
+                    <p>定期参与社区、学校或单位组织的防灾减灾应急演练，将理论知识转化为肌肉记忆，确保在真实灾害发生时能够快速、正确地做出反应。</p>
+                    <a href="#" class="btn">查看演练计划参考</a>
+                </div>
+                <div style="text-align:center; font-size:4rem;">🏃‍♂️</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ 区 -->
+    <section class="section" style="padding-top:0;" id="faq">
+        <div class="container">
+            <div class="section-head">
+                <h2>防灾减灾常见问题解答</h2>
+                <p>针对公众最关心的一些防灾疑问，我们给出简明、实用的解答。</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span class="q-mark">问</span> 地震发生时，如果身处高层建筑，应该怎么办？</div>
+                <div class="faq-answer">应立即蹲下，寻找坚固的桌子下方或承重墙墙角，用靠垫、双手护住头部和颈部。切勿乘坐电梯，不要贸然向阳台或窗户跑。主震过后，在确保安全的情况下，沿疏散楼梯有序撤离至空旷地带。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span class="q-mark">问</span> 遇到暴雨导致内涝，车辆被困水中应如何逃生？</div>
+                <div class="faq-answer">如果车辆被水淹且水位持续上涨，应立即解开安全带，尝试打开车门。若车门因水压无法打开，使用安全锤或尖锐物品敲击侧窗玻璃的四角或边缘位置，破窗后迅速爬出车顶等待救援，切勿留在车内。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span class="q-mark">问</span> 家庭应急包应该放在什么位置？</div>
+                <div class="faq-answer">建议放置在靠近大门口或卧室门口等便于快速拿取的位置，并确保所有家庭成员都知道存放地点。同时，在床头柜、车内也可以放置简化版的小型应急包，应对不同场景下的突发需要。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span class="q-mark">问</span> 如何确认社区周边的应急避难场所？</div>
+                <div class="faq-answer">可以通过当地应急管理局官网、社区居委会公告栏、小区物业或本地政务APP查询。应急避难场所通常设置在公园、绿地、广场、学校操场等开阔区域，并设有明显的指示标志。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span class="q-mark">问</span> 防灾减灾宣传周一般是什么时候？</div>
+                <div class="faq-answer">经国务院批准，自2009年起，每年5月12日为“全国防灾减灾日”，其所在周为“防灾减灾宣传周”。在此期间，全国各地会集中开展防灾减灾科普宣传、应急演练等活动。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>防灾减灾宣传</h4>
+                    <p style="font-size:0.9rem; line-height:1.8;">普及防灾减灾知识，增强全民风险意识，提升自救互救技能，共筑安全防线。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <a href="#">首页</a>
+                    <a href="#disaster">灾害类型科普</a>
+                    <a href="#guide">应急准备指南</a>
+                    <a href="#signal">预警信号解读</a>
+                </div>
+                <div class="footer-col">
+                    <h4>应急科普</h4>
+                    <a href="#">地震避险知识</a>
+                    <a href="#">台风防范措施</a>
+                    <a href="#">火灾逃生技巧</a>
+                    <a href="#">洪水自救方法</a>
+                </div>
+                <div class="footer-col">
+                    <h4>重要提示</h4>
+                    <p style="font-size:0.85rem;">紧急情况请拨打：110（报警）、119（火警）、120（急救）、122（交通事故）</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 防灾减灾宣传平台 · 学习防灾知识，守护生命安全</p>
+                <p style="font-size:0.8rem; margin-top:6px;">本页面内容为通用科普信息，具体应对措施请以当地应急管理部门发布为准</p>
+            </div>
+        </div>
+    </footer>
+</body>
+  </html>
